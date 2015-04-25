@@ -55,6 +55,11 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    self.registedTableWidth = CGRectGetHeight(self.tableView.frame);
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
