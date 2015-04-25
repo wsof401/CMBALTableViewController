@@ -38,12 +38,21 @@
          enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL *stop) {
              if ([obj isKindOfClass:[CMBALTableViewCell class]]) {
                  cell = (CMBALTableViewCell *)obj;
-                 stop = YES;
+                 *stop = YES;
              }
          }];
         NSAssert(cell, @"seems your put an error nib for identifer:%@",identifer);
         _templateCell = cell;
         _recoredType = CMRecorderStoreTypeXib;
+    }
+    return self;
+}
+
+- (instancetype)initWithStoryBoardIdentifer:(NSString *)identifer{
+    self = [super init];
+    if (self) {
+        _identifer = identifer;
+        _recoredType = CMRecorderStoreTypeCoding;
     }
     return self;
 }

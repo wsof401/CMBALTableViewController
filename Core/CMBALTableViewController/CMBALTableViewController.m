@@ -104,6 +104,13 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
     
 }
 
+- (void)registStoryboardCellMapModelClass:(Class<CMBALHeightCacheProtocol>)modelClass xibIdentifer:(NSString *)identifer{
+    NSString *modelClassName = NSStringFromClass(modelClass);
+    CMRecorder *recorder = [[CMRecorder alloc] initWithStoryBoardIdentifer:identifer];
+    recorder.templateCell = [self.tableView dequeueReusableCellWithIdentifier:identifer];
+    self.cellMapCollection[modelClassName] = recorder;
+}
+
 - (void)removeCellRegisRecord{
     self.cellMapCollection = [NSMutableDictionary dictionary];
 }

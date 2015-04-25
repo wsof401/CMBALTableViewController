@@ -47,6 +47,9 @@ typedef NS_ENUM(NSUInteger, CMBTableSourceType){
 
 - (void)registerNib:(UINib *)nib forModelClass:(Class<CMBALHeightCacheProtocol>)modelClass owner:(id)owner options:(NSDictionary *)options forCellReuseIdentifier:(NSString *)identifier;
 
+
+- (void)registStoryboardCellMapModelClass:(Class<CMBALHeightCacheProtocol>)modelClass xibIdentifer:(NSString *)identifer;
+
 - (void)removeCellRegisRecord;
 
 @end

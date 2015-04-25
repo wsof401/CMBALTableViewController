@@ -11,7 +11,8 @@
 typedef NS_ENUM(NSUInteger, CMRecorderStoreType) {
     CMRecorderStoreTypeNone,
     CMRecorderStoreTypeCoding,
-    CMRecorderStoreTypeXib
+    CMRecorderStoreTypeXib,
+    CMRecorderStoreTypeStoryboard
 };
 
 
@@ -24,5 +25,7 @@ typedef NS_ENUM(NSUInteger, CMRecorderStoreType) {
 - (instancetype)initWithIdentifer:(NSString *)identifer cellClass:(Class)cellClass;
 
 - (instancetype)initWithIdentifer:(NSString *)identifer Xib:(UINib *)cellNib owner:(id)owner options:(NSDictionary *)options;
+
+- (instancetype)initWithStoryBoardIdentifer:(NSString *)identifer;
 
 @end
