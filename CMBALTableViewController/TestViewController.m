@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.backgroundColor = [UIColor lightGrayColor];
+    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     self.sourceType = CMBTableSourceDefault;
 
     [self.dataSource addObjectsFromArray:@[[CMALModel new],[CMALModel new]]];
