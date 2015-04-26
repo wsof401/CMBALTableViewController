@@ -6,22 +6,23 @@
 //  Copyright (c) 2015年 CMB. All rights reserved.
 //
 
-#import "TestViewController.h"
-#import "TestCell.h"
-@interface TestViewController ()
+#import "TestCodeViewController.h"
+#import "TestCodeCell.h"
+@interface TestCodeViewController ()
 
 @end
 
-@implementation TestViewController
+@implementation TestCodeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
     self.sourceType = CMBTableSourceDefault;
 
-    [self.dataSource addObjectsFromArray:@[[CMALModel new],[CMALModel new]]];
-    [self registCellClass:[TestCell class] forModelClass:[CMALModel class]];
-    [self.tableView reloadData];
+    //使用代码创建cell
+    [self.dataSource addObjectsFromArray:@[[CMBALModel new],[CMBALModel new]]];
+    [self registerCellClass:[TestCodeCell class] forModelClass:[CMBALModel class]];
+
     // Do any additional setup after loading the view.
 }
 

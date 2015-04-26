@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "CMBALHeightCacheProtocol.h"
 
-@interface CMALModel : NSObject<CMBALHeightCacheProtocol>
+@interface CMBALModel : NSObject<CMBALHeightCacheProtocol>
 
 @end

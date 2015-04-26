@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD916B641AEA416100DF27A2 /* CMRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = FD916B631AEA416100DF27A2 /* CMRecorder.m */; };
+		FD916B641AEA416100DF27A2 /* CMBRegisterInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FD916B631AEA416100DF27A2 /* CMBRegisterInfo.m */; };
 		FD916B701AEB39F400DF27A2 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FD916B681AEB39F400DF27A2 /* ALView+PureLayout.m */; };
 		FD916B711AEB39F400DF27A2 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FD916B6A1AEB39F400DF27A2 /* NSArray+PureLayout.m */; };
 		FD916B721AEB39F400DF27A2 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FD916B6C1AEB39F400DF27A2 /* NSLayoutConstraint+PureLayout.m */; };
-		FD916B751AEB3A0700DF27A2 /* TestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD916B741AEB3A0700DF27A2 /* TestCell.m */; };
+		FD916B751AEB3A0700DF27A2 /* TestCodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD916B741AEB3A0700DF27A2 /* TestCodeCell.m */; };
 		FD916B7A1AEB3A5200DF27A2 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = FD916B771AEB3A5200DF27A2 /* reload.png */; };
 		FD916B7B1AEB3A5200DF27A2 /* reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD916B781AEB3A5200DF27A2 /* reload@2x.png */; };
 		FD916B7C1AEB3A5200DF27A2 /* reload@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD916B791AEB3A5200DF27A2 /* reload@3x.png */; };
-		FD916B7F1AEB3D0100DF27A2 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD916B7E1AEB3D0100DF27A2 /* TestViewController.m */; };
+		FD916B7F1AEB3D0100DF27A2 /* TestCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD916B7E1AEB3D0100DF27A2 /* TestCodeViewController.m */; };
 		FDCA0EC41AEA23E40042BA42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCA0EC31AEA23E40042BA42 /* main.m */; };
 		FDCA0EC71AEA23E40042BA42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCA0EC61AEA23E40042BA42 /* AppDelegate.m */; };
 		FDCA0ECD1AEA23E40042BA42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDCA0ECB1AEA23E40042BA42 /* Main.storyboard */; };
@@ -24,7 +24,10 @@
 		FDCA0EDE1AEA23E50042BA42 /* CMBALTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCA0EDD1AEA23E50042BA42 /* CMBALTableViewControllerTests.m */; };
 		FDCA0EEB1AEA260E0042BA42 /* CMBALTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCA0EEA1AEA260E0042BA42 /* CMBALTableViewController.m */; };
 		FDCA0EF31AEA32140042BA42 /* CMBALTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCA0EF21AEA32140042BA42 /* CMBALTableViewCell.m */; };
-		FDCA0EF81AEA3BAE0042BA42 /* CMALModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCA0EF71AEA3BAE0042BA42 /* CMALModel.m */; };
+		FDCA0EF81AEA3BAE0042BA42 /* CMBALModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCA0EF71AEA3BAE0042BA42 /* CMBALModel.m */; };
+		FDD274811AEB63B9005DDD17 /* TestXibViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD274801AEB63B9005DDD17 /* TestXibViewController.m */; };
+		FDD274831AEB63E1005DDD17 /* TestXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDD274821AEB63E1005DDD17 /* TestXibCell.xib */; };
+		FDD274861AEB6405005DDD17 /* TestXibCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD274851AEB6405005DDD17 /* TestXibCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +42,8 @@
 
 /* Begin PBXFileReference section */
 		FD916B611AEA3EA000DF27A2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		FD916B621AEA416100DF27A2 /* CMRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMRecorder.h; sourceTree = "<group>"; };
-		FD916B631AEA416100DF27A2 /* CMRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMRecorder.m; sourceTree = "<group>"; };
+		FD916B621AEA416100DF27A2 /* CMBRegisterInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBRegisterInfo.h; sourceTree = "<group>"; };
+		FD916B631AEA416100DF27A2 /* CMBRegisterInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBRegisterInfo.m; sourceTree = "<group>"; };
 		FD916B671AEB39F400DF27A2 /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
 		FD916B681AEB39F400DF27A2 /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
 		FD916B691AEB39F400DF27A2 /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
@@ -50,13 +53,13 @@
 		FD916B6D1AEB39F400DF27A2 /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
 		FD916B6E1AEB39F400DF27A2 /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
 		FD916B6F1AEB39F400DF27A2 /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
-		FD916B731AEB3A0700DF27A2 /* TestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestCell.h; path = ../Core/CMBALTableViewController/TestCell.h; sourceTree = "<group>"; };
-		FD916B741AEB3A0700DF27A2 /* TestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCell.m; path = ../Core/CMBALTableViewController/TestCell.m; sourceTree = "<group>"; };
+		FD916B731AEB3A0700DF27A2 /* TestCodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestCodeCell.h; path = CMBALTableViewController/TestCodeCell.h; sourceTree = "<group>"; };
+		FD916B741AEB3A0700DF27A2 /* TestCodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCodeCell.m; path = CMBALTableViewController/TestCodeCell.m; sourceTree = "<group>"; };
 		FD916B771AEB3A5200DF27A2 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
 		FD916B781AEB3A5200DF27A2 /* reload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload@2x.png"; sourceTree = "<group>"; };
 		FD916B791AEB3A5200DF27A2 /* reload@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload@3x.png"; sourceTree = "<group>"; };
-		FD916B7D1AEB3D0100DF27A2 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		FD916B7E1AEB3D0100DF27A2 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		FD916B7D1AEB3D0100DF27A2 /* TestCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestCodeViewController.h; path = ../CMBALTableViewController/TestCodeViewController.h; sourceTree = "<group>"; };
+		FD916B7E1AEB3D0100DF27A2 /* TestCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCodeViewController.m; path = ../CMBALTableViewController/TestCodeViewController.m; sourceTree = "<group>"; };
 		FDCA0EBE1AEA23E40042BA42 /* CMBALTableViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMBALTableViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCA0EC21AEA23E40042BA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDCA0EC31AEA23E40042BA42 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,8 +77,13 @@
 		FDCA0EF01AEA30F70042BA42 /* CMALTableViewCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMALTableViewCellProtocol.h; sourceTree = "<group>"; };
 		FDCA0EF11AEA32140042BA42 /* CMBALTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBALTableViewCell.h; sourceTree = "<group>"; };
 		FDCA0EF21AEA32140042BA42 /* CMBALTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBALTableViewCell.m; sourceTree = "<group>"; };
-		FDCA0EF61AEA3BAE0042BA42 /* CMALModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMALModel.h; sourceTree = "<group>"; };
-		FDCA0EF71AEA3BAE0042BA42 /* CMALModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMALModel.m; sourceTree = "<group>"; };
+		FDCA0EF61AEA3BAE0042BA42 /* CMBALModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBALModel.h; sourceTree = "<group>"; };
+		FDCA0EF71AEA3BAE0042BA42 /* CMBALModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBALModel.m; sourceTree = "<group>"; };
+		FDD2747F1AEB63B9005DDD17 /* TestXibViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestXibViewController.h; path = CMBALTableViewController/TestXibViewController.h; sourceTree = "<group>"; };
+		FDD274801AEB63B9005DDD17 /* TestXibViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestXibViewController.m; path = CMBALTableViewController/TestXibViewController.m; sourceTree = "<group>"; };
+		FDD274821AEB63E1005DDD17 /* TestXibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestXibCell.xib; sourceTree = "<group>"; };
+		FDD274841AEB6405005DDD17 /* TestXibCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestXibCell.h; sourceTree = "<group>"; };
+		FDD274851AEB6405005DDD17 /* TestXibCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestXibCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,13 +161,10 @@
 			children = (
 				FD916B761AEB3A5200DF27A2 /* Resources */,
 				FD916B651AEB39F400DF27A2 /* PureLayout */,
+				FDD2747C1AEB62E5005DDD17 /* TestVCCollections */,
 				FDCA0EE71AEA25F70042BA42 /* Core */,
 				FDCA0EC51AEA23E40042BA42 /* AppDelegate.h */,
 				FDCA0EC61AEA23E40042BA42 /* AppDelegate.m */,
-				FD916B7D1AEB3D0100DF27A2 /* TestViewController.h */,
-				FD916B7E1AEB3D0100DF27A2 /* TestViewController.m */,
-				FD916B731AEB3A0700DF27A2 /* TestCell.h */,
-				FD916B741AEB3A0700DF27A2 /* TestCell.m */,
 				FDCA0ECB1AEA23E40042BA42 /* Main.storyboard */,
 				FDCA0ECE1AEA23E40042BA42 /* Images.xcassets */,
 				FDCA0ED01AEA23E40042BA42 /* LaunchScreen.xib */,
@@ -210,14 +215,47 @@
 				FDCA0EEA1AEA260E0042BA42 /* CMBALTableViewController.m */,
 				FDCA0EF11AEA32140042BA42 /* CMBALTableViewCell.h */,
 				FDCA0EF21AEA32140042BA42 /* CMBALTableViewCell.m */,
-				FD916B621AEA416100DF27A2 /* CMRecorder.h */,
-				FD916B631AEA416100DF27A2 /* CMRecorder.m */,
-				FDCA0EF61AEA3BAE0042BA42 /* CMALModel.h */,
-				FDCA0EF71AEA3BAE0042BA42 /* CMALModel.m */,
+				FD916B621AEA416100DF27A2 /* CMBRegisterInfo.h */,
+				FD916B631AEA416100DF27A2 /* CMBRegisterInfo.m */,
+				FDCA0EF61AEA3BAE0042BA42 /* CMBALModel.h */,
+				FDCA0EF71AEA3BAE0042BA42 /* CMBALModel.m */,
 				FDCA0EF01AEA30F70042BA42 /* CMALTableViewCellProtocol.h */,
 				FDCA0EEF1AEA2EBD0042BA42 /* CMBALHeightCacheProtocol.h */,
 			);
 			path = CMBALTableViewController;
+			sourceTree = "<group>";
+		};
+		FDD2747C1AEB62E5005DDD17 /* TestVCCollections */ = {
+			isa = PBXGroup;
+			children = (
+				FDD2747E1AEB637F005DDD17 /* TestXibViewController */,
+				FDD2747D1AEB636F005DDD17 /* TestCodeViewController */,
+			);
+			name = TestVCCollections;
+			path = ../Core;
+			sourceTree = "<group>";
+		};
+		FDD2747D1AEB636F005DDD17 /* TestCodeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FD916B7D1AEB3D0100DF27A2 /* TestCodeViewController.h */,
+				FD916B7E1AEB3D0100DF27A2 /* TestCodeViewController.m */,
+				FD916B731AEB3A0700DF27A2 /* TestCodeCell.h */,
+				FD916B741AEB3A0700DF27A2 /* TestCodeCell.m */,
+			);
+			name = TestCodeViewController;
+			sourceTree = "<group>";
+		};
+		FDD2747E1AEB637F005DDD17 /* TestXibViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FDD2747F1AEB63B9005DDD17 /* TestXibViewController.h */,
+				FDD274801AEB63B9005DDD17 /* TestXibViewController.m */,
+				FDD274821AEB63E1005DDD17 /* TestXibCell.xib */,
+				FDD274841AEB6405005DDD17 /* TestXibCell.h */,
+				FDD274851AEB6405005DDD17 /* TestXibCell.m */,
+			);
+			name = TestXibViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDD274831AEB63E1005DDD17 /* TestXibCell.xib in Resources */,
 				FD916B7B1AEB3A5200DF27A2 /* reload@2x.png in Resources */,
 				FD916B7A1AEB3A5200DF27A2 /* reload.png in Resources */,
 				FD916B7C1AEB3A5200DF27A2 /* reload@3x.png in Resources */,
@@ -323,16 +362,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDD274811AEB63B9005DDD17 /* TestXibViewController.m in Sources */,
 				FDCA0EC71AEA23E40042BA42 /* AppDelegate.m in Sources */,
-				FD916B641AEA416100DF27A2 /* CMRecorder.m in Sources */,
+				FD916B641AEA416100DF27A2 /* CMBRegisterInfo.m in Sources */,
 				FDCA0EC41AEA23E40042BA42 /* main.m in Sources */,
 				FD916B701AEB39F400DF27A2 /* ALView+PureLayout.m in Sources */,
 				FD916B711AEB39F400DF27A2 /* NSArray+PureLayout.m in Sources */,
 				FD916B721AEB39F400DF27A2 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				FDCA0EF31AEA32140042BA42 /* CMBALTableViewCell.m in Sources */,
-				FD916B7F1AEB3D0100DF27A2 /* TestViewController.m in Sources */,
-				FD916B751AEB3A0700DF27A2 /* TestCell.m in Sources */,
-				FDCA0EF81AEA3BAE0042BA42 /* CMALModel.m in Sources */,
+				FD916B7F1AEB3D0100DF27A2 /* TestCodeViewController.m in Sources */,
+				FD916B751AEB3A0700DF27A2 /* TestCodeCell.m in Sources */,
+				FDCA0EF81AEA3BAE0042BA42 /* CMBALModel.m in Sources */,
+				FDD274861AEB6405005DDD17 /* TestXibCell.m in Sources */,
 				FDCA0EEB1AEA260E0042BA42 /* CMBALTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

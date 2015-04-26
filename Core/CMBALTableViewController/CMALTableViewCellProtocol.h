@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CMBALHeightCacheProtocol.h"
 
-@protocol CMALTableViewCellProtocol <NSObject>
+@protocol CMBALTableViewCellProtocol <NSObject>
 
 @property(nonatomic, weak) id<CMBALHeightCacheProtocol> model;
 

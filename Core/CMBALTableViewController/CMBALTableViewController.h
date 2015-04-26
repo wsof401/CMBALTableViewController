@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CMALModel.h"
+#import "CMBALModel.h"
 #import "CMBALTableViewCell.h"
 #import "CMBALHeightCacheProtocol.h"
 typedef NS_ENUM(NSUInteger, CMBTableSourceType){
@@ -37,9 +37,11 @@ typedef NS_ENUM(NSUInteger, CMBTableSourceType){
 
 - (NSString *)cellReuseIdentifierForModelClass:(Class<CMBALHeightCacheProtocol>)modelClass;
 
-- (void)registCellClass:(Class)cellClass forModelClass:(Class<CMBALHeightCacheProtocol>)modelClass;
+- (void)registerCellClass:(Class)cellClass forModelClass:(Class<CMBALHeightCacheProtocol>)modelClass;
 
-- (void)registCellClass:(Class)cellClass forModelClass:(Class<CMBALHeightCacheProtocol>)modelClass forCellReuseIdentifier:(NSString *)identifier;
+- (void)registerCellClass:(Class)cellClass forModelClass:(Class<CMBALHeightCacheProtocol>)modelClass forCellReuseIdentifier:(NSString *)identifier;
+
+- (void)registerNibName:(NSString *)nibName forModelClass:(Class<CMBALHeightCacheProtocol>)modelClass;
 
 - (void)registerNib:(UINib *)nib forModelClass:(Class<CMBALHeightCacheProtocol>)modelClass;
 
@@ -63,5 +65,13 @@ typedef NS_ENUM(NSUInteger, CMBTableSourceType){
 @end
 
 @interface CMBALTableViewController (TableSourceOperations)
+
+- (void)appendSource:(id)source;
+
+- (void)appendSource:(id)source reloaded:(BOOL)reload;
+
+- (void)innerAppendSource:(id)source;
+
+- (void)innerAppendSource:(id)source reloaded:(BOOL)reload;
 
 @end

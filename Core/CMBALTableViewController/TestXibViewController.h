@@ -1,5 +1,5 @@
 //
-//  TestViewController.h
+//  TestXibViewController.h
 //  CMBALTableViewController
 //
 //  Created by wusong on 15/4/25.
@@ -8,6 +8,6 @@
 
 #import "CMBALTableViewController.h"
 
-@interface TestViewController : CMBALTableViewController
+@interface TestXibViewController : CMBALTableViewController
 
 @end

@@ -6,11 +6,11 @@
 //  Copyright (c) 2015年 CMB. All rights reserved.
 //
 
-#import "TestCell.h"
+#import "TestCodeCell.h"
 #import "PureLayout.h"
 
 
-@implementation TestCell{
+@implementation TestCodeCell{
 
 }
 

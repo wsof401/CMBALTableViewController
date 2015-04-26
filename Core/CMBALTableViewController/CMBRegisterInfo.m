@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 CMB. All rights reserved.
 //
 
-#import "CMRecorder.h"
+#import "CMBRegisterInfo.h"
 #import "CMBALTableViewCell.h"
-@implementation CMRecorder
+@implementation CMBRegisterInfo
 
 - (instancetype)init{
     self = [super init];
@@ -21,7 +21,7 @@
 - (instancetype)initWithIdentifer:(NSString *)identifer cellClass:(Class)cellClass{
     self = [super init];
     if (self) {
-        _identifer = identifer;
+        _reuseIdentifer = identifer;
         _templateCell = [cellClass new];
         _recoredType = CMRecorderStoreTypeCoding;
     }
@@ -31,7 +31,7 @@
 - (instancetype)initWithIdentifer:(NSString *)identifer Xib:(UINib *)cellNib owner:(id)owner options:(NSDictionary *)options{
     self = [super init];
     if (self) {
-        _identifer = identifer;
+        _reuseIdentifer = identifer;
         __block CMBALTableViewCell *cell = nil;
         [[cellNib instantiateWithOwner:owner
                                options:options]
@@ -51,7 +51,7 @@
 - (instancetype)initWithStoryBoardIdentifer:(NSString *)identifer{
     self = [super init];
     if (self) {
-        _identifer = identifer;
+        _reuseIdentifer = identifer;
         _recoredType = CMRecorderStoreTypeCoding;
     }
     return self;

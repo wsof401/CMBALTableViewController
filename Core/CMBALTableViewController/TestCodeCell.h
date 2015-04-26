@@ -8,7 +8,7 @@
 
 #import "CMBALTableViewCell.h"
 
-@interface TestCell : CMBALTableViewCell
+@interface TestCodeCell : CMBALTableViewCell
 @property(nonatomic, strong) UIImageView *arvatar;
 @property(nonatomic, strong) UILabel *title;
 

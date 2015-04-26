@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CMALTableViewCellProtocol.h"
 
-@interface CMBALTableViewCell : UITableViewCell<CMALTableViewCellProtocol>
+@interface CMBALTableViewCell : UITableViewCell<CMBALTableViewCellProtocol>
 
 - (void)initializationForCode;
 

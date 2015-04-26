@@ -6,11 +6,11 @@
 //  Copyright (c) 2015年 CMB. All rights reserved.
 //
 
-#import "CMALModel.h"
+#import "CMBALModel.h"
 
 static const CGFloat kCMBDefaultHeight = -1.0f;
 
-@implementation CMALModel
+@implementation CMBALModel
 @synthesize cachedHeight,mappingTableWidth;
 
 - (instancetype)init{

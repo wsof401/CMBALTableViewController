@@ -16,9 +16,10 @@ typedef NS_ENUM(NSUInteger, CMRecorderStoreType) {
 };
 
 
-@interface CMRecorder : NSObject
+@interface CMBRegisterInfo : NSObject
 
-@property(nonatomic, copy) NSString *identifer;
+@property(nonatomic, copy) NSString *mappingModel;
+@property(nonatomic, copy) NSString *reuseIdentifer;
 @property(nonatomic, strong) CMBALTableViewCell *templateCell;
 @property(nonatomic, assign) CMRecorderStoreType recoredType;
 
