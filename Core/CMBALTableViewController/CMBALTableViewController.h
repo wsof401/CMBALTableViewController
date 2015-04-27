@@ -78,4 +78,6 @@ typedef NS_ENUM(NSUInteger, CMBTableSourceType){
 
 - (void)innerAppendSource:(id)source reloaded:(BOOL)reload;
 
+- (CMBALModel *)modelForIndexPath:(NSIndexPath *)indexPath
+
 @end

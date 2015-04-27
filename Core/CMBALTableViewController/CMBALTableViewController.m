@@ -215,13 +215,24 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
     switch (self.sourceType) {
         case CMBTableSourceDefault:
             if ([source isKindOfClass:[NSArray class]]) {
+                [source enumerateObjectsUsingBlock:^(CMBALModel obj, NSUInteger idx, BOOL *stop) {
+                    obj.mappingTableWidth = CGRectGetWidth(self.tableView.frame);
+                    obj.cachedHeight = [self caculateRowHeightForModel:obj];
+                }];
                 [self.dataSource addObjectsFromArray:source];
             }else{
+                obj.mappingTableWidth = CGRectGetWidth(self.tableView.frame);
+                obj.cachedHeight = [self caculateRowHeightForModel:obj];
                 [self.dataSource addObject:source];
             }
             break;
         case CMBTableSourceInner:
             NSAssert([source isKindOfClass:[NSArray class]], @"CMBTableSourceInner should add from an NSArray and subClasses,If you need inner append pleas call innerAppend");
+            [source enumerateObjectsUsingBlock:^(CMBALModel obj, NSUInteger idx, BOOL *stop) {
+                obj.mappingTableWidth = CGRectGetWidth(self.tableView.frame);
+                obj.cachedHeight = [self caculateRowHeightForModel:obj];
+            }];
+
             [self.dataSource addObject:source];
             break;
     }
