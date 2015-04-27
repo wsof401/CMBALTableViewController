@@ -30,6 +30,10 @@ typedef NS_ENUM(NSUInteger, CMBTableSourceType){
 - (instancetype)initWithTableStyle:(UITableViewStyle)style
                           sourceType:(CMBTableSourceType)sourceType;
 
+- (CGFloat)cellHeightForModel:(CMBALModel *)model;
+
+
+
 @end
 
 

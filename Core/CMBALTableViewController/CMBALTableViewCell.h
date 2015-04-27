@@ -15,6 +15,8 @@
 
 - (void)initializationForXib;
 
+- (void)updateConstraintsIfTableStretch;
+
 - (void)commonConfigWithModel:(id<CMBALHeightCacheProtocol>)dataModel;
 
 - (void)templateLoadWithModel:(id<CMBALHeightCacheProtocol>)dataModel;

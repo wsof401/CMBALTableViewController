@@ -64,4 +64,8 @@
     [self commonConfigWithModel:dataModel];
 }
 
+- (void)updateConstraintsIfTableStretch{
+    
+}
+
 @end

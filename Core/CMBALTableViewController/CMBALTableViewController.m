@@ -45,14 +45,10 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
     return self;
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidLayoutSubviews{
@@ -188,6 +184,9 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
     NSString *modelName = NSStringFromClass([model class]);
     CMBALTableViewCell *cell = [self templateCellForModelNamed:modelName];
     NSAssert(cell, @"SomeThing wrong happend,Check the code if had regist the model : %@",modelName);
+    if (model.mappingTableWidth != self.registedTableWidth) {
+        [cell updateConstraintsIfTableStretch];
+    }
     [cell templateLoadWithModel:model];
     cell.bounds = CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(cell.bounds));
     cell.contentView.bounds = cell.bounds;
@@ -199,6 +198,10 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
         height += 1;
     }
     return height;
+}
+
+- (CGFloat)cellHeightForModel:(CMBALModel *)model{
+    return [self caculateRowHeightForModel:model];
 }
 
 #pragma mark - TableSourceOperations
