@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CMBALModel.h"
-#import "CMBALTableViewCell.h"
-#import "CMBALHeightCacheProtocol.h"
+#import "CMBHeightCache.h"
 typedef NS_ENUM(NSUInteger, CMBTableSourceType){
     CMBTableSourceDefault,
     CMBTableSourceInner,
@@ -19,19 +17,12 @@ typedef NS_ENUM(NSUInteger, CMBTableSourceType){
 
 @property(nonatomic, copy) NSMutableArray *dataSource;
 
-@property(nonatomic, assign) CGFloat registedTableWidth;
-
-@property(nonatomic, assign, readonly) CGFloat fixedCellHeight;
-
-@property(nonatomic, assign) BOOL isCellFixed;
-
 @property(nonatomic) CMBTableSourceType sourceType;
 
 - (instancetype)initWithTableStyle:(UITableViewStyle)style
                           sourceType:(CMBTableSourceType)sourceType;
 
-- (CGFloat)cellHeightForModel:(CMBALModel *)model;
-
+- (CGFloat)cellHeightForModel:(id<CMBALHeightCacheProtocol>)model;
 
 
 @end
@@ -56,7 +47,7 @@ typedef NS_ENUM(NSUInteger, CMBTableSourceType){
 
 - (void)registStoryboardCellMapModelClass:(Class<CMBALHeightCacheProtocol>)modelClass xibIdentifer:(NSString *)identifer;
 
-- (void)removeCellRegisRecord;
+- (void)clearMappingCache;
 
 @end
 
@@ -78,6 +69,6 @@ typedef NS_ENUM(NSUInteger, CMBTableSourceType){
 
 - (void)innerAppendSource:(id)source reloaded:(BOOL)reload;
 
-- (CMBALModel *)modelForIndexPath:(NSIndexPath *)indexPath;
+- (id<CMBALHeightCacheProtocol>)modelForIndexPath:(NSIndexPath *)indexPath;
 
 @end

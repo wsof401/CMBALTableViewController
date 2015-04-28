@@ -8,7 +8,7 @@
 
 #import "TestXibViewController.h"
 #import "TestXibCell.h"
-
+#import "CMBALModel.h"
 @interface TestXibViewController ()
 
 @end
@@ -17,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self registStoryboardCellMapModelClass:[CMBALModel class] xibIdentifer:@"1"];
     [self.dataSource addObjectsFromArray:@[[CMBALModel new],[CMBALModel new]]];
     

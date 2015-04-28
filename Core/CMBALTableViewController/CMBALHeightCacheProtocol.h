@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+static const CGFloat CMBOriginRegisterNumber = -1;
 @protocol CMBALHeightCacheProtocol <NSObject>
 
 @required

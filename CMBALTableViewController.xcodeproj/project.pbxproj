@@ -16,6 +16,7 @@
 		FD916B7B1AEB3A5200DF27A2 /* reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD916B781AEB3A5200DF27A2 /* reload@2x.png */; };
 		FD916B7C1AEB3A5200DF27A2 /* reload@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD916B791AEB3A5200DF27A2 /* reload@3x.png */; };
 		FD916B7F1AEB3D0100DF27A2 /* TestCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD916B7E1AEB3D0100DF27A2 /* TestCodeViewController.m */; };
+		FD9BB7731AEF87EC006FDFFB /* CMBHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9BB7721AEF87EC006FDFFB /* CMBHeightCache.m */; };
 		FDCA0EC41AEA23E40042BA42 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCA0EC31AEA23E40042BA42 /* main.m */; };
 		FDCA0EC71AEA23E40042BA42 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCA0EC61AEA23E40042BA42 /* AppDelegate.m */; };
 		FDCA0ECD1AEA23E40042BA42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDCA0ECB1AEA23E40042BA42 /* Main.storyboard */; };
@@ -60,6 +61,8 @@
 		FD916B791AEB3A5200DF27A2 /* reload@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload@3x.png"; sourceTree = "<group>"; };
 		FD916B7D1AEB3D0100DF27A2 /* TestCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestCodeViewController.h; path = ../CMBALTableViewController/TestCodeViewController.h; sourceTree = "<group>"; };
 		FD916B7E1AEB3D0100DF27A2 /* TestCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCodeViewController.m; path = ../CMBALTableViewController/TestCodeViewController.m; sourceTree = "<group>"; };
+		FD9BB7711AEF87EC006FDFFB /* CMBHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBHeightCache.h; sourceTree = "<group>"; };
+		FD9BB7721AEF87EC006FDFFB /* CMBHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBHeightCache.m; sourceTree = "<group>"; };
 		FDCA0EBE1AEA23E40042BA42 /* CMBALTableViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CMBALTableViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCA0EC21AEA23E40042BA42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDCA0EC31AEA23E40042BA42 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 			children = (
 				FDCA0EE91AEA260E0042BA42 /* CMBALTableViewController.h */,
 				FDCA0EEA1AEA260E0042BA42 /* CMBALTableViewController.m */,
+				FD9BB7711AEF87EC006FDFFB /* CMBHeightCache.h */,
+				FD9BB7721AEF87EC006FDFFB /* CMBHeightCache.m */,
 				FDCA0EF11AEA32140042BA42 /* CMBALTableViewCell.h */,
 				FDCA0EF21AEA32140042BA42 /* CMBALTableViewCell.m */,
 				FD916B621AEA416100DF27A2 /* CMBRegisterInfo.h */,
@@ -368,6 +373,7 @@
 				FDCA0EC41AEA23E40042BA42 /* main.m in Sources */,
 				FD916B701AEB39F400DF27A2 /* ALView+PureLayout.m in Sources */,
 				FD916B711AEB39F400DF27A2 /* NSArray+PureLayout.m in Sources */,
+				FD9BB7731AEF87EC006FDFFB /* CMBHeightCache.m in Sources */,
 				FD916B721AEB39F400DF27A2 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				FDCA0EF31AEA32140042BA42 /* CMBALTableViewCell.m in Sources */,
 				FD916B7F1AEB3D0100DF27A2 /* TestCodeViewController.m in Sources */,

@@ -7,13 +7,9 @@
 //
 
 #import "CMBALTableViewController.h"
-#import "CMBRegisterInfo.h"
-
-
-static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClass:%@";
 
 @interface CMBALTableViewController ()
-@property(nonatomic, strong) NSMutableDictionary *cellMapCollection;
+@property(nonatomic, strong) CMBHeightCache *cmbHeightCache;
 @end
 
 @implementation CMBALTableViewController
@@ -23,6 +19,7 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
     self = [super initWithStyle:style];
     if (self) {
         _sourceType = sourceType;
+        _cmbHeightCache = [[CMBHeightCache alloc] initWithReferenceTableView:self.tableView];
     }
     return self;
 }
@@ -45,15 +42,19 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
     return self;
 }
 
+- (void)awakeFromNib{
+    [super awakeFromNib];
 
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.cmbHeightCache = [[CMBHeightCache alloc]initWithReferenceTableView:self.tableView];
 }
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    self.registedTableWidth = CGRectGetHeight(self.tableView.frame);
+    [self.cmbHeightCache updateRegisterWidth];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,58 +66,40 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
 #pragma mark -Cell Regist Operation
 
 - (NSString *)cellReuseIdentifierForModelClass:(Class<CMBALHeightCacheProtocol>)modelClass{
-    NSString *cellClass = NSStringFromClass(modelClass);
-    CMBRegisterInfo *recorder = self.cellMapCollection[cellClass];
-    return recorder ? recorder.reuseIdentifer : nil;
+    return [self.cmbHeightCache cellReuseIdentifierForModelClass:modelClass];
 }
 
 - (void)registerCellClass:(Class)cellClass forModelClass:(Class<CMBALHeightCacheProtocol>)modelClass{
-    NSString *customIdentifer = [[NSString alloc] initWithFormat:kCMALTableViewIdentiferCompnent,NSStringFromClass(modelClass)];
-    [self registerCellClass:cellClass forModelClass:modelClass forCellReuseIdentifier:customIdentifer];
+    [self.cmbHeightCache registerCellClass:cellClass forModelClass:modelClass];
 }
 
 - (void)registerCellClass:(Class)cellClass forModelClass:(Class<CMBALHeightCacheProtocol>)modelClass forCellReuseIdentifier:(NSString *)identifier{
-    NSString *modelClassName = NSStringFromClass(modelClass);
-    CMBRegisterInfo *recorder = [[CMBRegisterInfo alloc] initWithIdentifer:identifier cellClass:cellClass];
-    recorder.mappingModel = modelClassName;
-    [self.tableView registerClass:cellClass forCellReuseIdentifier:identifier];
-    self.cellMapCollection[modelClassName] = recorder;
+    [self.cmbHeightCache registerCellClass:cellClass forModelClass:modelClass forCellReuseIdentifier:identifier];
 }
 
 
 - (void)registerNibName:(NSString *)nibName forModelClass:(Class<CMBALHeightCacheProtocol>)modelClass{
-    NSString *customIdentifer = [[NSString alloc] initWithFormat:kCMALTableViewIdentiferCompnent,NSStringFromClass(modelClass)];
-    UINib *nib = [UINib nibWithNibName:nibName bundle:nil];
-    [self registerNib:nib forModelClass:modelClass owner:nil options:nil forCellReuseIdentifier:customIdentifer];
+    [self.cmbHeightCache registerNibName:nibName forModelClass:modelClass];
 }
 
 - (void)registerNib:(UINib *)nib forModelClass:(Class<CMBALHeightCacheProtocol>)modelClass{
-    NSString *customIdentifer = [[NSString alloc] initWithFormat:kCMALTableViewIdentiferCompnent,NSStringFromClass(modelClass)];
-    [self registerNib:nib forModelClass:modelClass owner:nil options:nil forCellReuseIdentifier:customIdentifer];
+    [self.cmbHeightCache registerNib:nib forModelClass:modelClass];
 }
 
 - (void)registerNib:(UINib *)nib forModelClass:(Class<CMBALHeightCacheProtocol>)modelClass forCellReuseIdentifier:(NSString *)identifier{
-    [self registerNib:nib forModelClass:modelClass owner:nil options:nil forCellReuseIdentifier:identifier];
+    [self.cmbHeightCache registerNib:nib forModelClass:modelClass forCellReuseIdentifier:identifier];
 }
 
 - (void)registerNib:(UINib *)nib forModelClass:(Class<CMBALHeightCacheProtocol>)modelClass owner:(id)owner options:(NSDictionary *)options forCellReuseIdentifier:(NSString *)identifier{
-    NSString *modelClassName = NSStringFromClass(modelClass);
-    CMBRegisterInfo *recorder = [[CMBRegisterInfo alloc] initWithIdentifer:identifier Xib:nib owner:owner options:options];
-    recorder.mappingModel = modelClassName;
-    [self.tableView registerNib:nib forCellReuseIdentifier:identifier];
-    self.cellMapCollection[modelClassName] = recorder;
+    [self.cmbHeightCache registerNib:nib forModelClass:modelClass owner:owner options:options forCellReuseIdentifier:identifier];
 }
 
 - (void)registStoryboardCellMapModelClass:(Class<CMBALHeightCacheProtocol>)modelClass xibIdentifer:(NSString *)identifer{
-    NSString *modelClassName = NSStringFromClass(modelClass);
-    CMBRegisterInfo *recorder = [[CMBRegisterInfo alloc] initWithStoryBoardIdentifer:identifer];
-    recorder.mappingModel = modelClassName;
-    recorder.templateCell = [self.tableView dequeueReusableCellWithIdentifier:identifer];
-    self.cellMapCollection[modelClassName] = recorder;
+    [self.cmbHeightCache registStoryboardCellMapModelClass:modelClass xibIdentifer:identifer];
 }
 
-- (void)removeCellRegisRecord{
-    self.cellMapCollection = [NSMutableDictionary dictionary];
+- (void)clearMappingCache{
+    [self.cmbHeightCache clearMappingCache];
 }
 
 #pragma mark - CMB dataSource Core
@@ -143,7 +126,7 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
     }
 }
 
-- (CMBALModel *)modelForIndexPath:(NSIndexPath *)indexPath{
+- (id<CMBALHeightCacheProtocol>)modelForIndexPath:(NSIndexPath *)indexPath{
     switch (self.sourceType) {
         case CMBTableSourceDefault:
             return self.dataSource[indexPath.row];
@@ -155,53 +138,30 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
 }
 
 - (CMBALTableViewCell *)templateCellForModelNamed:(NSString *)modelName{
-    CMBRegisterInfo *modelRecorder = self.cellMapCollection[modelName];
-    NSAssert(modelRecorder && [modelRecorder.templateCell isKindOfClass:[CMBALTableViewCell class]], @"can not load template cell for model class : %@",modelName);
-    return modelRecorder.templateCell;
+    CMBALTableViewCell *templateCell = [self.cmbHeightCache templateCellForModelClassName:modelName];
+    return templateCell;
 }
 
 - (CMBALTableViewCell *)reusedCellForModelNamed:(NSString *)modelName{
-    CMBRegisterInfo *modelRecorder = self.cellMapCollection[modelName];
-    CMBALTableViewCell *reusedCell = [self.tableView dequeueReusableCellWithIdentifier:modelRecorder.reuseIdentifer];
-    NSAssert(modelRecorder && reusedCell, @"can not load reuse cell for model class : %@",modelName);
+    CMBALTableViewCell *reusedCell = [self.cmbHeightCache reuseCellForModelClassName:modelName];
     return reusedCell;
 }
 
-- (CGFloat)rowHeightForModel:(CMBALModel *)model{
-    if (_isCellFixed) {
-        return self.fixedCellHeight;
+- (CGFloat)rowHeightForModel:(id<CMBALHeightCacheProtocol>)model{
+    if (self.cmbHeightCache.isCellFixed) {
+        return self.cmbHeightCache.cellFixedHeight;
     }
     
-    if (model.mappingTableWidth != self.registedTableWidth) {
-        model.cachedHeight = [self caculateRowHeightForModel:model];
-        model.mappingTableWidth = self.registedTableWidth;
+    if (model.mappingTableWidth != self.cmbHeightCache.registeredTableWidth) {
+        [self.cmbHeightCache cmbHeightForModel:model];
     }
     
     return model.cachedHeight;
 }
 
-- (CGFloat)caculateRowHeightForModel:(CMBALModel *)model {
-    NSString *modelName = NSStringFromClass([model class]);
-    CMBALTableViewCell *cell = [self templateCellForModelNamed:modelName];
-    NSAssert(cell, @"SomeThing wrong happend,Check the code if had regist the model : %@",modelName);
-    if (model.mappingTableWidth != self.registedTableWidth) {
-        [cell updateConstraintsIfTableStretch];
-    }
-    [cell templateLoadWithModel:model];
-    cell.bounds = CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(cell.bounds));
-    cell.contentView.bounds = cell.bounds;
-    [cell setNeedsLayout];
-    [cell layoutIfNeeded];
-    
-    CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-    if (self.tableView.separatorStyle != UITableViewCellSeparatorStyleNone) {
-        height += 1;
-    }
-    return height;
-}
 
-- (CGFloat)cellHeightForModel:(CMBALModel *)model{
-    return [self caculateRowHeightForModel:model];
+- (CGFloat)cellHeightForModel:(id<CMBALHeightCacheProtocol>)model{
+    return [self.cmbHeightCache cmbHeightForModel:model];
 }
 
 #pragma mark - TableSourceOperations
@@ -211,31 +171,34 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
 }
 
 - (void)appendSource:(id)source reloaded:(BOOL)reload{
-    NSAssert(source && [source isKindOfClass:[CMBALModel class]], @"appending source can not be nil and is CMBALModel subclasses");
-    switch (self.sourceType) {
-        case CMBTableSourceDefault:
-            if ([source isKindOfClass:[NSArray class]]) {
-                [source enumerateObjectsUsingBlock:^(CMBALModel *obj, NSUInteger idx, BOOL *stop) {
-                    obj.mappingTableWidth = CGRectGetWidth(self.tableView.frame);
-                    obj.cachedHeight = [self caculateRowHeightForModel:obj];
+    if (source) {
+        switch (self.sourceType) {
+            case CMBTableSourceDefault:
+                if ([source isKindOfClass:[NSArray class]]) {
+                    [source enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                        NSAssert([obj conformsToProtocol:@protocol(CMBALHeightCacheProtocol)], @"appending source must conforms CMBALHeightCacheProtocol");
+                        [self.cmbHeightCache cmbHeightForModel:(id<CMBALHeightCacheProtocol>)obj];
+                        [self.dataSource addObject:obj];
+                    }];
+                }else{
+                    NSAssert([source conformsToProtocol:@protocol(CMBALHeightCacheProtocol)], @"appending source must conforms CMBALHeightCacheProtocol");
+                    [self.cmbHeightCache cmbHeightForModel:(id<CMBALHeightCacheProtocol>)source];
+                    [self.dataSource addObject:source];
+                }
+                break;
+            case CMBTableSourceInner:
+                NSAssert([source isKindOfClass:[NSArray class]], @"CMBTableSourceInner should add from an NSArray and subClasses,If you need inner append pleas call innerAppend");
+                [source enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    NSAssert([obj conformsToProtocol:@protocol(CMBALHeightCacheProtocol)], @"appending source must conforms CMBALHeightCacheProtocol");
+                    [self.cmbHeightCache cmbHeightForModel:(id<CMBALHeightCacheProtocol>)obj];
                 }];
-                [self.dataSource addObjectsFromArray:source];
-            }else{
-                __weak CMBALModel *model = (CMBALModel *)source;
-                model.mappingTableWidth = CGRectGetWidth(self.tableView.frame);
-                model.cachedHeight = [self caculateRowHeightForModel:model];
-                [self.dataSource addObject:model];
-            }
-            break;
-        case CMBTableSourceInner:
-            NSAssert([source isKindOfClass:[NSArray class]], @"CMBTableSourceInner should add from an NSArray and subClasses,If you need inner append pleas call innerAppend");
-            [source enumerateObjectsUsingBlock:^(CMBALModel *obj, NSUInteger idx, BOOL *stop) {
-                obj.mappingTableWidth = CGRectGetWidth(self.tableView.frame);
-                obj.cachedHeight = [self caculateRowHeightForModel:obj];
-            }];
-
-            [self.dataSource addObject:source];
-            break;
+                
+                [self.dataSource addObject:source];
+                break;
+        }
+    }
+    if (reload) {
+        [self.tableView reloadData];
     }
 }
 
@@ -282,30 +245,24 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CMBALModel *model = [self modelForIndexPath:indexPath];
+    id<CMBALHeightCacheProtocol> model = [self modelForIndexPath:indexPath];
     NSString *modelName = NSStringFromClass([model class]);
-    CMBALTableViewCell *reusedCell = [self reusedCellForModelNamed:modelName];
+    CMBALTableViewCell *reusedCell = [self.cmbHeightCache reuseCellForModelClassName:modelName];
     [reusedCell commonConfigWithModel:model];
     return reusedCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [self tableView:tableView estimatedHeightForRowAtIndexPath:indexPath];
+    id<CMBALHeightCacheProtocol> model = [self modelForIndexPath:indexPath];
+    return [self.cmbHeightCache cmbHeightForModel:model];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    CMBALModel *model = [self modelForIndexPath:indexPath];
-    return [self rowHeightForModel:model];
+    return [self tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 #pragma mark --Custom Associate
 
-- (NSMutableDictionary *)cellMapCollection{
-    if (!_cellMapCollection) {
-        _cellMapCollection = [NSMutableDictionary dictionary];
-    }
-    return _cellMapCollection;
-}
 
 - (NSMutableArray *)dataSource{
     if (!_dataSource) {

@@ -9,7 +9,7 @@
 #import "CMBALTableViewCell.h"
 
 @implementation CMBALTableViewCell
-@synthesize model;
+@synthesize cmbCellModel;
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -52,16 +52,12 @@
 
 #pragma mark --Data binding
 
-- (void)loadWithModel:(id<CMBALHeightCacheProtocol>)dataModel{
-    self.model = dataModel;
-    [self commonConfigWithModel:dataModel];
-}
-
 - (void)commonConfigWithModel:(id<CMBALHeightCacheProtocol>)dataModel{
-    
+    self.cmbCellModel = dataModel;
 }
 
 - (void)templateLoadWithModel:(id<CMBALHeightCacheProtocol>)dataModel{
+    self.cmbCellModel = dataModel;
     [self commonConfigWithModel:dataModel];
 }
 

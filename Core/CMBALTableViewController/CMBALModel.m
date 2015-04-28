@@ -8,8 +8,6 @@
 
 #import "CMBALModel.h"
 
-const CGFloat CMBOriginRegisterNumber = -1.0f;
-
 @implementation CMBALModel
 @synthesize cachedHeight,mappingTableWidth;
 

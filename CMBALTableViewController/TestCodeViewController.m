@@ -8,6 +8,7 @@
 
 #import "TestCodeViewController.h"
 #import "TestCodeCell.h"
+#import "CMBALModel.h"
 @interface TestCodeViewController ()
 
 @end

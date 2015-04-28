@@ -11,8 +11,6 @@
 
 @protocol CMBALTableViewCellProtocol <NSObject>
 
-@property(nonatomic, weak) id<CMBALHeightCacheProtocol> model;
-
-- (void)loadWithModel:(id<CMBALHeightCacheProtocol>)dataModel;
+@property(nonatomic, weak) id<CMBALHeightCacheProtocol> cmbCellModel;
 
 @end
