@@ -34,6 +34,7 @@
 #pragma makr --Initialization
 
 - (void)_cmbRootInitForCode{
+    self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
     [self initializationForCode];
 }
 

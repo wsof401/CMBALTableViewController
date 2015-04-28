@@ -28,9 +28,7 @@
     [self.contentView addSubview:_arvatar];
     [self.contentView addSubview:_title];
     
-    [UIView autoSetPriority:999 forConstraints:^{
-        [_arvatar autoSetDimensionsToSize:CGSizeMake(100, 100)];
-    }];
+    [_arvatar autoSetDimensionsToSize:CGSizeMake(100, 100)];
     
     [_arvatar autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(8, 8, 8, 8) excludingEdge:ALEdgeTrailing];
     [_title autoAlignAxis:ALAxisHorizontal toSameAxisOfView:_arvatar];
