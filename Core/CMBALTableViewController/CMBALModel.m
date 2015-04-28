@@ -8,7 +8,7 @@
 
 #import "CMBALModel.h"
 
-static const CGFloat kCMBDefaultHeight = -1.0f;
+const CGFloat CMBOriginRegisterNumber = -1.0f;
 
 @implementation CMBALModel
 @synthesize cachedHeight,mappingTableWidth;
@@ -22,8 +22,8 @@ static const CGFloat kCMBDefaultHeight = -1.0f;
 }
 
 - (void)needReloadHeight{
-    self.cachedHeight = kCMBDefaultHeight;
-    self.mappingTableWidth = kCMBDefaultHeight;
+    self.cachedHeight = CMBOriginRegisterNumber;
+    self.mappingTableWidth = CMBOriginRegisterNumber;
 }
 
 @end

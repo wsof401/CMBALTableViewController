@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CMBALHeightCacheProtocol.h"
 
+extern const CGFloat CMBOriginRegisterNumber;
+
 @interface CMBALModel : NSObject<CMBALHeightCacheProtocol>
 
 @end
