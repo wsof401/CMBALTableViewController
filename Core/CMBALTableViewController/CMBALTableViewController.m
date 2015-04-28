@@ -211,24 +211,25 @@ static NSString *const kCMALTableViewIdentiferCompnent = @"CMB_Registed_CellClas
 }
 
 - (void)appendSource:(id)source reloaded:(BOOL)reload{
-    NSAssert(source, @"appending source can not be nil");
+    NSAssert(source && [source isKindOfClass:[CMBALModel class]], @"appending source can not be nil and is CMBALModel subclasses");
     switch (self.sourceType) {
         case CMBTableSourceDefault:
             if ([source isKindOfClass:[NSArray class]]) {
-                [source enumerateObjectsUsingBlock:^(CMBALModel obj, NSUInteger idx, BOOL *stop) {
+                [source enumerateObjectsUsingBlock:^(CMBALModel *obj, NSUInteger idx, BOOL *stop) {
                     obj.mappingTableWidth = CGRectGetWidth(self.tableView.frame);
                     obj.cachedHeight = [self caculateRowHeightForModel:obj];
                 }];
                 [self.dataSource addObjectsFromArray:source];
             }else{
-                obj.mappingTableWidth = CGRectGetWidth(self.tableView.frame);
-                obj.cachedHeight = [self caculateRowHeightForModel:obj];
-                [self.dataSource addObject:source];
+                __weak CMBALModel *model = (CMBALModel *)source;
+                model.mappingTableWidth = CGRectGetWidth(self.tableView.frame);
+                model.cachedHeight = [self caculateRowHeightForModel:model];
+                [self.dataSource addObject:model];
             }
             break;
         case CMBTableSourceInner:
             NSAssert([source isKindOfClass:[NSArray class]], @"CMBTableSourceInner should add from an NSArray and subClasses,If you need inner append pleas call innerAppend");
-            [source enumerateObjectsUsingBlock:^(CMBALModel obj, NSUInteger idx, BOOL *stop) {
+            [source enumerateObjectsUsingBlock:^(CMBALModel *obj, NSUInteger idx, BOOL *stop) {
                 obj.mappingTableWidth = CGRectGetWidth(self.tableView.frame);
                 obj.cachedHeight = [self caculateRowHeightForModel:obj];
             }];
