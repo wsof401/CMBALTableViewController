@@ -34,6 +34,7 @@
     [_title autoAlignAxis:ALAxisHorizontal toSameAxisOfView:_arvatar];
     [_title autoPinEdge:ALEdgeLeading toEdge:ALEdgeTrailing ofView:_arvatar withOffset:10];
     [_title autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:10];
+    [_arvatar autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:20];
 }
 
 - (void)commonConfigWithModel:(id<CMBALHeightCacheProtocol>)dataModel{

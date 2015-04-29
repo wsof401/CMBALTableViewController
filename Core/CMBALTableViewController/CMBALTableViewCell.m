@@ -7,6 +7,13 @@
 //
 
 #import "CMBALTableViewCell.h"
+#import "PureLayout.h"
+
+@interface CMBALTableViewCell()
+
+@property(nonatomic, strong) NSLayoutConstraint *contentWConstrant;
+
+@end
 
 @implementation CMBALTableViewCell
 @synthesize cmbCellModel;
@@ -31,10 +38,18 @@
     [self _cmbRootInitForXib];
 }
 
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    CGFloat cellWidth = CGRectGetWidth(self.frame);
+    if (self.contentWConstrant.constant != cellWidth) {
+        self.contentWConstrant.constant = cellWidth;
+    }
+}
+
 #pragma makr --Initialization
 
 - (void)_cmbRootInitForCode{
-    self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.contentWConstrant = [self.contentView autoSetDimension:ALDimensionWidth toSize:CGRectGetWidth(self.frame)];
     [self initializationForCode];
 }
 
